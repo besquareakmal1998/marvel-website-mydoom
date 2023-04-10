@@ -181,6 +181,9 @@ nav {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 1rem;
+  box-sizing: border-box;
+
+  
 }
 .card {
   background-color: #b41f23;
@@ -266,7 +269,41 @@ p {
 
 .grid-container {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto;
+  box-sizing: border-box;
+
+ 
+
+  /* Media Query for Mobile Devices */
+  @media (max-width: 480px) {
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+
+  }
+    
+  /* Media Query for low resolution  Tablets, Ipads */
+  @media (min-width: 481px) and (max-width: 767px) {
+    .grid-container { grid-template-columns: repeat(2, 1fr); }
+
+  }
+    
+  /* Media Query for Tablets Ipads portrait mode */
+  @media (min-width: 768px) and (max-width: 1024px){
+    .grid-container { grid-template-columns: repeat(3, 1fr); }
+
+  }
+    
+  /* Media Query for Laptops and Desktops */
+  @media (min-width: 1025px) and (max-width: 1280px){
+    .grid-container { grid-template-columns: repeat(4, 1fr); }
+
+  }
+    
+  /* Media Query for Large screens */
+  @media (min-width: 1281px) {
+    .grid-container { grid-template-columns: repeat(5, 1fr); }
+
+  }
+
 }
 
 .grid-item {
@@ -1096,6 +1133,21 @@ h1 {
       color: blue;
       border: solid 1px blue;
     }
+
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      margin: 10px 0;
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 480px) {
+      flex-basis: 50%;
+    }
+    
+    @media screen and (max-width: 320px) {
+      flex-basis: 100%;
+    }
   }
 }
 
@@ -1162,7 +1214,8 @@ transform: translateY(50%);
   justify-content: left;
   flex-direction: row;
   flex:1;
-  margin: 20;
+  margin: 20; 
+   
      
 }
 .img{
@@ -1176,10 +1229,39 @@ transform: translateY(50%);
 }
 .pop_up_content{
   margin-right: 10%;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
 }
 .cardcontent{
   flex:2;
 }
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+}
+  
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+    
+}
+  
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px){
+ 
+}
+  
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) and (max-width: 1280px){
+    
+}
+  
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+ 
+}
+
+
 @keyframes fade-up {
   from {
     opacity: 0;

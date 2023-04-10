@@ -10,11 +10,23 @@ const ComicsPage = ( {children} ) => {
     const [comic,setComic]=useState([])
     const[filterComics,setFilterComic]=useState('');
     const [searchComics,setSearchComics]=useState("");
-    const[model,setModel]=useState(false);
-    const[tempData,setTemptData]=useState([]);
     const[popupcontent,setPopUpContent]=useState([]);
     const [popuptogle,setPopUpToggle]=useState(false);
-    const [styling,setStyling]=useState(null)
+    const [styling,setStyling]=useState(null);
+  
+
+    //comments
+    const comment =[
+      {
+        userId: '02b',
+        comId: '017',
+        fullName: 'Lily',
+        userProfile: 'https://www.linkedin.com/in/riya-negi-8879631a9/',
+        text: 'I think you have a point🤔',
+        avatarUrl: 'https://ui-avatars.com/api/name=Lily&background=random',
+        replies: []
+      }
+    ]
 
 //setter for on and off the modal
      const changecontent=(item)=>{
@@ -115,7 +127,7 @@ const ComicsPage = ( {children} ) => {
 
 
   
-    // get getTopAnime() as the site render useEffect is used
+    // get getPopularComics() as the site render useEffect is used
     useEffect(() => {
       getComics();
     }, []);
@@ -135,7 +147,7 @@ const ComicsPage = ( {children} ) => {
              {/* <h1>{item.title}</h1>
              <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} width={500} height={800} key={item.id}/> */}
              <Card title={item.title} image_src={`${item.thumbnail.path}.${item.thumbnail.extension}`}/>
-             <button onClick={()=>changecontent(item) } >Click here</button>
+             
                
               </div>
                )})}
@@ -143,15 +155,15 @@ const ComicsPage = ( {children} ) => {
           {popuptogle&&<div className="pop_up_container">  
            <div className='pop_up_body' onClick={(e)=>e.stopPropagation}>  
            <div className="pop_up_header">
-            <img src={cancel} onClick={changecontent} height={35} width={26}/>
+            <img src={cancel} onClick={changecontent} height={35} width={26} alt="Cancel"/>
            </div>
-             <div className="pop_up_content">
+             <div className="pop_up_content" >
               {popupcontent.map((item)=>{
                 console.log(item.title)
                 return(
                   <div className='pop_up_card' >
                     <div className='img'>
-                     <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} className='img'/>
+                     <img src={`${item.thumbnail.path}.${item.thumbnail.extension}`} className='img' alt="Thumbnail"/>
                      </div>
                      <div className='cardcontent'>
                     <p>Title:{item.title}</p>
@@ -166,6 +178,8 @@ const ComicsPage = ( {children} ) => {
              </div>
              </div>
              </div> }
+
+
              </div>
     );
 }
